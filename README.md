@@ -23,7 +23,7 @@ This application is a peer-to-peer chat platform that allows users to communicat
 #### It doesn't send request to another peer, how to fix it?
 Windows firewall might be blocking the request, here's how to fix it
  - open windows firewall
- - add a new rule under inboud connection
+ - add a new rule under inbound connection
  - select the application 
 
 #### What protocol does it uses for security?
@@ -35,7 +35,7 @@ It is using 'Noise_NN_25519_ChaChaPoly_SHA256'
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/150x200?text=App+Screenshot+Here)
-![App Screenshot](https://via.placeholder.com/150x200?text=App+Screenshot+Here)
-![App Screenshot](https://via.placeholder.com/150x200?text=App+Screenshot+Here)
+![Login Window](/screenshots/login.png)
+![Request Window](/screenshots/conn_demo.png)
+![Chat Window](/screenshots/chat_demo.png)
 
