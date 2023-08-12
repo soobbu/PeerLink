@@ -1,7 +1,8 @@
 import json
+import sys
 from inspect import getfullargspec
 from mimetypes import guess_type
-from os.path import getsize
+from os.path import abspath, getsize, join
 from time import time
 from uuid import UUID, uuid4
 
@@ -97,3 +98,11 @@ class Peer:
 
     def gen_pub_key(self):
         pass
+
+def resource_path(relative_path) -> str:
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = abspath(".")
+
+    return join(base_path, relative_path)

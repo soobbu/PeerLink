@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import (QApplication, QFileDialog, QGridLayout,
                              QHBoxLayout, QLabel, QLineEdit, QMessageBox,
                              QPushButton, QScrollArea, QTextEdit, QVBoxLayout,
                              QWidget)
-
+from peerlink.utils import resource_path
 
 # https://stackoverflow.com/questions/69594116/passing-generic-type-to-inner-class
 # A modified version
@@ -33,13 +33,13 @@ class LoginWindow(QWidget):
         root_layout = QVBoxLayout()
 
         self.label = QLabel("")
-        self.label.setPixmap(QPixmap("icons/user_big.png"))
+        self.label.setPixmap(QPixmap(resource_path("icons/user_big.png")))
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.username = QLineEdit()
         self.username.setPlaceholderText("Enter Username")
 
-        self.proceed_btn = QPushButton(QIcon("icons/proceed.png"), "Proceed")
+        self.proceed_btn = QPushButton(QIcon(resource_path("icons/proceed.png")), "Proceed")
 
         root_layout.addWidget(self.label)
         root_layout.addWidget(self.username)
@@ -58,7 +58,7 @@ class ConnectionWindow(QWidget):
         h_layout = QHBoxLayout()
 
         self.label = QLabel("Available Peers :")
-        self.reload_btn = QPushButton(QIcon("icons/reload.png"), "")
+        self.reload_btn = QPushButton(QIcon(resource_path("icons/reload.png")), "")
 
         self.peer_list_area = QScrollArea()
         self.peer_list_widget = QWidget()
@@ -104,7 +104,7 @@ class ChatWindow(QWidget):
             Qt.TextInteractionFlag.NoTextInteraction
         )
 
-        self.files_btn = QPushButton(QIcon("icons/upload.png"), "")
+        self.files_btn = QPushButton(QIcon(resource_path("icons/upload.png")), "")
         self.chat_text = QLineEdit()
         self.send_btn = QPushButton("send")
         self.send_btn.setShortcut("Return")
@@ -164,7 +164,7 @@ class Controller(QObject):
         self._add_to_grid(
             self.conn_ui.peer_list_layout,
             name,
-            "icons/add.png",
+            resource_path("icons/add.png"),
             partial(self.model.send_req, host, port),
         )
 
@@ -172,7 +172,7 @@ class Controller(QObject):
         self._add_to_grid(
             self.conn_ui.req_list_layout,
             name,
-            "icons/accept.png",
+            resource_path("icons/accept.png"),
             partial(self.model.accept_req, host, port),
         )
 
